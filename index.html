@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Credit Risk Estimator</h1>
+        <div style="display:flex; align-items:flex-start">
+        <form>
+            <label for="age">Age:</label>
+            <input type="number" min="18" max="120" id="age" required>
+            <br>
+            <label for="income">Income:</label>
+            <input type="number" min="0" id="income" required>
+            <br>
+            <label for="home">Home Ownership:</label>
+            <select name="home" id="home" required>
+                <option value="rent">Rent</option>
+                <option value="mortgage">Mortgage</option>
+                <option value="own">Own</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="emp">Employment Length:</label>
+            <input type="number" min="0" max="120" id="emp" required>
+            <br>
+            <label for="intent">Loan Intent:</label>
+            <select name="intent" id="intent" required>
+                <option value="education">Education</option>
+                <option value="medical">Medical</option>
+                <option value="venture">Venture</option>
+                <option value="personal">Personal</option>
+                <option value="debt">Debt Consolidation</option>
+            </select>
+            <br>
+            <label for="grade">Loan Grade:</label>
+            <select name="grade" id="grade" required>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+                <option value="e">E</option>
+            </select>
+            <br>
+            <label for="amnt">Loan Amount:</label>
+            <input type="number" min="0" id="amnt" required>
+            <br>
+            <label for="int">Interest Rate:</label>
+            <input type="number" min="0" step=0.001 id="int" required>
+            <br>
+            <label for="default">Previous Default History:</label>
+            <select name="default" id="default" required>
+                <option value="a">Yes</option>
+                <option value="b">No</option>
+            </select>
+            <br>
+            <label for="hist">Credit History Length:</label>
+            <input type="number" min="0" id="hist" required>
+            <br>
+            <input type="submit">
+        </form>
+        <div id="display" style="display:flex; justify-items:center;align-items:center;flex-direction:column;">
+            <h2>Risk Assessment:</h2><br>
+            <div id="pie" class="pie animate" style="--p:0;--c:gray">--%</div>
+        </div>
+        </div>
+    </body>
+</html>
