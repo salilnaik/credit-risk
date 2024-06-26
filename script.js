@@ -20,7 +20,7 @@ const std = {
 
 let _model;
 
-tf.loadLayersModel("model.json").then(model => {
+tf.loadLayersModel("jsmodel/model.json").then(model => {
     _model = model;
 })
 
