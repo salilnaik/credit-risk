@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score
 import numpy as np
+from scipy.stats import zscore
 
 data = pd.read_csv("credit_risk_dataset.csv")
 home_cols = pd.get_dummies(data["person_home_ownership"])
@@ -21,22 +22,24 @@ data[["person_age", "person_income", "person_emp_length", "loan_amnt", "loan_int
 
 data = data.dropna()
 
+data = data[(np.abs(zscore(data)) < 3).all(axis=1)]
+
 y = data["loan_status"]
 X = data.drop("loan_status", axis="columns")
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 model = Sequential([
     Input(shape=(25,)),
-    Dense(128, activation="tanh"),
-    Dense(16, activation="tanh"),
+    Dense(64, activation="relu"),
+    Dense(32, activation="relu"),
     Dense(1, activation="sigmoid")
 ])
 
 model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["Accuracy"])
 
 
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=100)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=50)
 
 y_pred = np.around(model.predict(X_test))
 acc = accuracy_score(y_test, y_pred)

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="script.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Credit Risk Estimator</h1>
         <div style="display:flex; align-items:flex-start">
-        <form>
+        <form action="" id="form">
             <label for="age">Age:</label>
             <input type="number" min="18" max="120" id="age" required>
             <br>
@@ -31,7 +30,8 @@
                 <option value="medical">Medical</option>
                 <option value="venture">Venture</option>
                 <option value="personal">Personal</option>
-                <option value="debt">Debt Consolidation</option>
+                <option value="home">Debt Consolidation</option>
+                <option value="debt">Home Improvement</option>
             </select>
             <br>
             <label for="grade">Loan Grade:</label>
@@ -41,6 +41,8 @@
                 <option value="c">C</option>
                 <option value="d">D</option>
                 <option value="e">E</option>
+                <option value="f">F</option>
+                <option value="g">G</option>
             </select>
             <br>
             <label for="amnt">Loan Amount:</label>
@@ -65,5 +67,7 @@
             <div id="pie" class="pie animate" style="--p:0;--c:gray">--%</div>
         </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
