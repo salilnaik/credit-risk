@@ -5,4 +5,4 @@ The extra files included in the repo are:
 - credit_risk_dataset.csv - The dataset used to train the model
 - creditrisk.py - The Python script defining and training the neural network
 - model.h5 - The fully trained model in Tensorflow format
-- model.json & group1-shard1of1.bin - The fully trained model in TensorflowJS format
+- jsmodel/model.json & jsmodel.group1-shard1of1.bin - The fully trained model in TensorflowJS format
